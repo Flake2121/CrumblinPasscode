@@ -39,6 +39,7 @@
     </style>
 </head>
 <body>
+    <h1>Enter Passcode</h1>
     <div class="display" id="display">Enter passcode</div>
     <div class="keypad">
         <button onclick="addToPasscode(1)">1</button>
@@ -51,13 +52,13 @@
         <button onclick="addToPasscode(8)">8</button>
         <button onclick="addToPasscode(9)">9</button>
         <button onclick="addToPasscode(0)">0</button>
-        <button class="clear" onclick="clearPasscode()">C</button>
-        <button class="enter" onclick="checkPasscode()">↵</button>
+        <button class="clear" onclick="clearPasscode()">Clear</button>
+        <button class="enter" onclick="checkPasscode()">Enter</button>
     </div>
 
     <script type="text/javascript">
         var passcodeInput = "";
-        var correctPasscode = "1001130519"; // Replace with your desired passcode
+        var correctPasscode = "1234"; // Replace with your desired passcode
 
         function addToPasscode(number) {
             passcodeInput += number;
@@ -72,7 +73,7 @@
         function checkPasscode() {
             if (passcodeInput === correctPasscode) {
                 // Open the URL in a new tab
-                window.open("https://counter.crumblin.net", "_blank");
+                window.open("https://your-redirect-url.com", "_blank");
             } else {
                 alert("Incorrect passcode.");
                 clearPasscode();
