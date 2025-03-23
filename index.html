@@ -11,6 +11,7 @@
             grid-gap: 10px;
             justify-content: center;
             margin-top: 20px;
+            grid-template-rows: repeat(4, 50px); /* Add rows for 4 rows of buttons */
         }
         .keypad button {
             font-size: 20px;
@@ -31,14 +32,17 @@
         .clear {
             background-color: #f44336;
             color: white;
+            grid-column: span 3; /* Span across all 3 columns */
         }
         .enter {
             background-color: #4CAF50;
             color: white;
+            grid-column: span 3; /* Span across all 3 columns */
         }
     </style>
 </head>
 <body>
+    <h1>Enter Passcode</h1>
     <div class="display" id="display">Enter passcode</div>
     <div class="keypad">
         <button onclick="addToPasscode(1)">1</button>
@@ -71,7 +75,8 @@
 
         function checkPasscode() {
             if (passcodeInput === correctPasscode) {
-                window.open("https://counter.crumblin.net", "_blank"); // Replace with your redirect URL
+                // Open the URL in a new tab
+                window.open("https://counter.crumblin.net "_blank");
             } else {
                 alert("Incorrect passcode.");
                 clearPasscode();
