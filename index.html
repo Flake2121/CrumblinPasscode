@@ -57,7 +57,7 @@
 
     <script type="text/javascript">
         var passcodeInput = "";
-        var correctPasscode = "1234"; // Replace with your desired passcode
+        var correctPasscode = "1001130519"; // Replace with your desired passcode
 
         function addToPasscode(number) {
             passcodeInput += number;
@@ -72,7 +72,7 @@
         function checkPasscode() {
             if (passcodeInput === correctPasscode) {
                 // Open the URL in a new tab
-                window.open("https://your-redirect-url.com", "_blank");
+                window.top.location.href = "https://counter.crumblin.net"; "_blank";
             } else {
                 alert("Incorrect passcode.");
                 clearPasscode();
