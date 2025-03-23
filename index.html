@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passcode Redirect</title>
+    <script type="text/javascript">
+        function checkPasscode() {
+            var passcode = prompt("Enter passcode:");
+            var correctPasscode = "your_passcode"; // Replace with your desired passcode
+
+            if (passcode === correctPasscode) {
+                window.location.href = "https://your-redirect-url.com"; // Replace with your redirect URL
+            } else {
+                alert("Incorrect passcode.");
+            }
+        }
+    </script>
+</head>
+<body onload="checkPasscode()">
+    <h1>Passcode Protected Page</h1>
+    <p>If you are seeing this, the passcode has not been entered correctly yet.</p>
+</body>
+</html>
