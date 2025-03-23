@@ -3,22 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Passcode Redirect</title>
-    <script type="text/javascript">
-        function checkPasscode() {
-            var passcode = prompt("Enter passcode:");
-            var correctPasscode = "your_passcode"; // Replace with your desired passcode
+    <title>Passcode Protected Redirect</title>
+    <style>
+        .keypad {
+            display: grid;
+            grid-template-columns: repeat(3, 50px);
+            grid-gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .keypad button {
+            font-size: 20px;
+            padding: 20px;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+        }
+        .display {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 2px solid #ccc;
+            width: 160px;
+            margin: 0 auto;
+        }
+        .clear {
+            background-color: #f44336;
+            color: white;
+        }
+        .enter {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Enter Passcode</h1>
+    <div class="display" id="display">Enter passcode</div>
+    <div class="keypad">
+        <button onclick="addToPasscode(1)">1</button>
+        <button onclick="addToPasscode(2)">2</button>
+        <button onclick="addToPasscode(3)">3</button>
+        <button onclick="addToPasscode(4)">4</button>
+        <button onclick="addToPasscode(5)">5</button>
+        <button onclick="addToPasscode(6)">6</button>
+        <button onclick="addToPasscode(7)">7</button>
+        <button onclick="addToPasscode(8)">8</button>
+        <button onclick="addToPasscode(9)">9</button>
+        <button onclick="addToPasscode(0)">0</button>
+        <button class="clear" onclick="clearPasscode()">Clear</button>
+        <button class="enter" onclick="checkPasscode()">Enter</button>
+    </div>
 
-            if (passcode === correctPasscode) {
+    <script type="text/javascript">
+        var passcodeInput = "";
+        var correctPasscode = "1234"; // Replace with your desired passcode
+
+        function addToPasscode(number) {
+            passcodeInput += number;
+            document.getElementById('display').textContent = passcodeInput;
+        }
+
+        function clearPasscode() {
+            passcodeInput = "";
+            document.getElementById('display').textContent = "Enter passcode";
+        }
+
+        function checkPasscode() {
+            if (passcodeInput === correctPasscode) {
                 window.location.href = "https://your-redirect-url.com"; // Replace with your redirect URL
             } else {
                 alert("Incorrect passcode.");
+                clearPasscode();
             }
         }
     </script>
-</head>
-<body onload="checkPasscode()">
-    <h1>Passcode Protected Page</h1>
-    <p>If you are seeing this, the passcode has not been entered correctly yet.</p>
 </body>
 </html>
